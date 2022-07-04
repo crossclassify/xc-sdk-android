@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "510276090143",
+    "project_id": "bitatracker-1f08b",
+    "storage_bucket": "bitatracker-1f08b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510276090143:android:9cda41b3d4427aaad1982a",
+        "android_client_info": {
+          "package_name": "com.example.bitatrackerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510276090143-17kpc4vhs9oac5bfpvkfq45vnrk5fo60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bitatrackerapp",
+            "certificate_hash": "0fa215b5cb48e6ea91e23474d581daa7cb566fb2"
+          }
+        },
+        {
+          "client_id": "510276090143-7gqu7jdfo1nrsc5u5346jfm5kcappip8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA9aLEp6yi8OMskXoxn9fmCWPaM9XRB_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510276090143-7gqu7jdfo1nrsc5u5346jfm5kcappip8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

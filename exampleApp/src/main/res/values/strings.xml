@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BitaTrackerApp</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="here_s_nyour_first_nstep_with_nus">Here’s\nyour first\nstep with \nus!</string>
+    <string name="todo">TODO</string>
+    <string name="name">Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="use_other_methods">Use other Methods</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="new_user_register_now">New user?\n Register Now</string>
+    <string name="login">Login</string>
+    <string name="already_nhave_an_naccount">Already \nhave an \nAccount?</string>
+    <string name="IsTrackable">IncludeContentTracking</string>
+    <string name="IsNotTrackable">IsNotTrackable</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

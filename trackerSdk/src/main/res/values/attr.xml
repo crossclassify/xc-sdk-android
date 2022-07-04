@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TrackerEditText">
+        <attr name="fieldName" format="string" />
+    </declare-styleable>
+    <declare-styleable name="TrackerRadioGroup">
+        <attr name="radio_field_name" format="string" />
+    </declare-styleable>
+    <declare-styleable name="TrackerCheckBox">
+        <attr name="check_box_field_name" format="string" />
+    </declare-styleable>
+</resources>
