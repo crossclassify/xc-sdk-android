@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardElevation="6dp"
-    android:background="@color/white">
+    android:background="@color/white"
+    app:cardBackgroundColor="@color/white">
 
     <com.crossclassify.trackersdk.TrackerRadioGroup
         android:id="@+id/radioGroup"

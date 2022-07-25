@@ -58,10 +58,6 @@ class LoginActivity : TrackerActivity() {
     fun clearSubmittedData(){
         editTextEmail.setText("")
         editTextPassword.setText("")
-        radio1.isChecked=false
-        radio2.isChecked=false
-        checkbox_choice1.isChecked=false
-        checkbox_choice2.isChecked=false
     }
 
 

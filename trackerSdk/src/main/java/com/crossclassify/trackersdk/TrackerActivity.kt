@@ -26,6 +26,7 @@ abstract class TrackerActivity : AppCompatActivity(),
     private var faId = getFormName()
 
     private val PREF_KEY_TRACKER_VISITORID = "tracker.visitorid"
+    private val PREF_KEY_TRACKER_FINGERPRINT = "tracker.fingerprint"
 
     private lateinit var bitaApplicationContext: Context
 
@@ -67,6 +68,7 @@ abstract class TrackerActivity : AppCompatActivity(),
 
 
     private var deviceId: String? = null
+    private var fingerprint:String?=null
     private var resolution: String? = null
     private var idSite = Values.SITE_ID
 
@@ -91,6 +93,15 @@ abstract class TrackerActivity : AppCompatActivity(),
         deviceId = sharedPreferences.getString(PREF_KEY_TRACKER_VISITORID, null)
         return deviceId
 
+    }
+
+    private fun getFingerPrint():String?{
+        val sharedPreferences = getSharedPreferences(
+            "org.matomo.sdk_FE8DB41078DFFC3D9751687595C3B837",
+            Context.MODE_PRIVATE
+        )
+        fingerprint = sharedPreferences.getString(PREF_KEY_TRACKER_FINGERPRINT, null)
+        return fingerprint
     }
 
     // get device resolution
@@ -153,6 +164,7 @@ abstract class TrackerActivity : AppCompatActivity(),
             fa_tts = if (submitButtonClick) getTimeToSubmission() else null,
             fa_id = faId,
             _id = deviceId,
+            uid= fingerprint ,
             id_site = idSite,
             fieldsMetaData = resultFieldMetaData,
             resolustion = resolution
@@ -333,6 +345,7 @@ abstract class TrackerActivity : AppCompatActivity(),
 
         this.bitaApplicationContext = applicationContext
         this.deviceId = getDeviceId()
+        this.fingerprint=getFingerPrint()
         this.resolution = getResolution()
 
         checkChildren(view as ViewGroup, false)
@@ -345,6 +358,7 @@ abstract class TrackerActivity : AppCompatActivity(),
         (view as ViewGroup).addView(focusView, 0)
         this.bitaApplicationContext = applicationContext
         this.deviceId = getDeviceId()
+        this.fingerprint=getFingerPrint()
         this.resolution = getResolution()
 
         checkChildren(view as ViewGroup, false)

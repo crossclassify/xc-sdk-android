@@ -32,12 +32,15 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:layout_toStartOf="@id/image"
+                    android:layout_margin="8dp"
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:text="@string/new_user_register_now" />
 
                 <ImageView
+                    android:id="@+id/image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -115,6 +118,42 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
+                <com.crossclassify.trackersdk.TrackerRadioGroup
+                    android:id="@+id/radiogroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="@string/IsTrackable"
+                    app:radio_field_name="sex">
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Female"
+                        android:textColor="@color/black" />
+
+                    <RadioButton
+                        android:id="@+id/radio2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Male"
+                        android:textColor="@color/black" />
+                </com.crossclassify.trackersdk.TrackerRadioGroup>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+
+                    <com.crossclassify.trackersdk.TrackerCheckBox
+                        android:id="@+id/checkbox_choice1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tag="@string/IsTrackable"
+                        android:text="Are you interested in technology?"
+                        android:textColor="@color/black"
+                        app:check_box_field_name="technology" />
+                </LinearLayout>
             </LinearLayout>
 
 
@@ -127,6 +166,7 @@
 
 
             <TextView
+                android:id="@+id/goToLogin"
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:text="@string/already_have_an_account"
@@ -142,47 +182,8 @@
                 android:gravity="center"
                 android:weightSum="12">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/colorPrimaryDark" />
 
-                <TextView
-                    style="@style/viewParent.headerText.NoMode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="@string/use_other_methods"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/colorPrimaryDark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/todo"
-                    android:src="@drawable/ic_facebook" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:contentDescription="@string/todo"
-                    android:src="@drawable/ic_google_plus" />
             </LinearLayout>
 
         </LinearLayout>

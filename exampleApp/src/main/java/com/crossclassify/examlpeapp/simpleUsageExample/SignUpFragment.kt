@@ -1,5 +1,6 @@
 package com.crossclassify.examlpeapp.simpleUsageExample
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +35,12 @@ class SignUpFragment : TrackerFragment() {
                 "Thanks for signing up. Welcome to our community.",
                 Toast.LENGTH_SHORT
             ).show()
+        }
+
+        goToLogin.setOnClickListener {
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            startActivity(intent)
+
         }
     }
 

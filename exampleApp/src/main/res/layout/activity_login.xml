@@ -48,6 +48,7 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:layout_marginTop="70dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -96,60 +97,8 @@
                         app:fieldName="password" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.crossclassify.trackersdk.TrackerRadioGroup
-                    android:id="@+id/radiogroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:tag="@string/IsTrackable"
-                    app:radio_field_name="hosting">
-
-                    <RadioButton
-                        android:id="@+id/radio1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="yes"
-                        android:textColor="@color/black" />
-
-                    <RadioButton
-                        android:id="@+id/radio2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="no"
-                        android:textColor="@color/black" />
-                </com.crossclassify.trackersdk.TrackerRadioGroup>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical">
-
-                    <com.crossclassify.trackersdk.TrackerCheckBox
-                        android:id="@+id/checkbox_choice1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:tag="@string/IsTrackable"
-                        android:text="choice1"
-                        android:textColor="@color/black"
-                        app:check_box_field_name="choice1" />
-
-                    <com.crossclassify.trackersdk.TrackerCheckBox
-                        android:id="@+id/checkbox_choice2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="choice2"
-                        android:textColor="@color/black"
-                        app:check_box_field_name="choice2" />
-                </LinearLayout>
             </LinearLayout>
 
-
-            <TextView
-                style="@style/viewParent"
-                android:layout_gravity="end"
-                android:layout_marginTop="10dp"
-                android:text="@string/forgot_password"
-                android:textColor="@color/primaryTextColor"
-                android:textSize="@dimen/newsMoreTextSize" />
 
             <Button
                 android:id="@+id/btnSubmit"
@@ -192,23 +141,25 @@
                     android:text="@string/use_other_methods"
                     android:textAlignment="center"
                     android:textSize="12sp" />
+
                 <TextView
                     android:id="@+id/goToRecycler"
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="default / "
                     android:gravity="right"
+                    android:text="default / "
                     android:textSize="12sp" />
+
                 <TextView
                     android:id="@+id/goToEpoxy"
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="epoxy/"
                     android:gravity="center"
+                    android:text="epoxy/"
                     android:textSize="12sp" />
 
                 <TextView
@@ -217,8 +168,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="epoxy2"
                     android:gravity="left"
+                    android:text="epoxy2"
                     android:textSize="12sp" />
 
                 <View
@@ -227,26 +178,6 @@
                     android:layout_weight="5"
                     android:background="@color/colorPrimaryDark" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/todo"
-                    android:src="@drawable/ic_facebook" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:contentDescription="@string/todo"
-                    android:src="@drawable/ic_google_plus" />
             </LinearLayout>
 
         </LinearLayout>

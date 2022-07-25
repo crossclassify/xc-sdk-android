@@ -25,6 +25,8 @@ class FormMetaData(
     val fieldsMetaData: List<FieldMetaData>,
     //device id
     val _id: String?,
+    // fingerprint
+    val uid:String?,
     //site id
     val id_site: Int,
     //page resolution

@@ -26,6 +26,7 @@ abstract class TrackerFragment : Fragment(),
     private var faId = getFormName()
 
     private val PREF_KEY_TRACKER_VISITORID = "tracker.visitorid"
+    private val PREF_KEY_TRACKER_FINGERPRINT = "tracker.fingerprint"
 
     private lateinit var bitaApplicationContext: Context
 
@@ -64,6 +65,7 @@ abstract class TrackerFragment : Fragment(),
 
 
     private var deviceId: String? = null
+    private var fingerprint:String?=null
     private var resolution: String? = null
     private var idSite = Values.SITE_ID
 
@@ -83,6 +85,14 @@ abstract class TrackerFragment : Fragment(),
         deviceId = sharedPreferences.getString(PREF_KEY_TRACKER_VISITORID, null)
         return deviceId
 
+    }
+    private fun getFingerPrint():String?{
+        val sharedPreferences = requireContext().getSharedPreferences(
+            "org.matomo.sdk_FE8DB41078DFFC3D9751687595C3B837",
+            Context.MODE_PRIVATE
+        )
+        fingerprint = sharedPreferences.getString(PREF_KEY_TRACKER_FINGERPRINT, null)
+        return fingerprint
     }
 
     // get device resolution
@@ -145,6 +155,7 @@ abstract class TrackerFragment : Fragment(),
             fa_tts = if (submitButtonClick) getTimeToSubmission() else null,
             fa_id = faId,
             _id = deviceId,
+            uid=fingerprint,
             id_site = idSite,
             fieldsMetaData = resultFieldMetaData.toList(),
             resolustion = resolution
@@ -328,6 +339,7 @@ abstract class TrackerFragment : Fragment(),
 
         this.bitaApplicationContext = requireActivity().applicationContext
         this.deviceId = getDeviceId()
+        this.fingerprint=getFingerPrint()
         this.resolution = getResolution()
 
         checkChildren(view as ViewGroup, false)

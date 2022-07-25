@@ -20,7 +20,7 @@ class Epoxy2Activity : TrackerActivity(), EpoxyPassItems {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_epoxy2)
-        epoxyList = findViewById(R.id.listEpoxy)
+        epoxyList = findViewById(R.id.epoxy_rv)
         epoxyList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         epoxyList.withModels {
             controller = this

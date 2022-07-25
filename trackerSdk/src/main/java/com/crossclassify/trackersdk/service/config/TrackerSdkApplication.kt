@@ -68,6 +68,7 @@ abstract class TrackerSdkApplication : Application() {
                         MODE_PRIVATE
                     )
                     sharedPreferences.edit().putString("tracker.visitorid", visitorId).apply()
+                    sharedPreferences.edit().putString("tracker.fingerprint",userId).apply()
                 }
             }
         }
@@ -102,7 +103,7 @@ abstract class TrackerSdkApplication : Application() {
     /** Initialize Matomo EndPoint **/
     private fun onCreateTrackerConfig(): TrackerBuilder {
         return TrackerBuilder.createDefault(
-            "https://matomo-cc-dinl5i5e5a-ts.a.run.app/matomo.php",
+            "https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/matomo.php",
             this.mSiteId
         )
     }

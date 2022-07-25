@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/white"
     android:background="@color/white">
 
 
@@ -16,7 +17,8 @@
         android:text="choice1"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
-        app:check_box_field_name="choice1" />
+        app:check_box_field_name="choice1"
+        android:background="@color/white"/>
 
 
 </androidx.cardview.widget.CardView>
