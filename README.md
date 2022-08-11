@@ -21,7 +21,7 @@ repositories {
 Then, add the code below to your app module `build.gradle` file.
 ```kotlin
 dependencies {
-  implementation 'com.github.crossclassify:xc-sdk-android:1.3.0'
+  implementation 'com.github.crossclassify:xc-sdk-android:1.4.0'
 }
 ```
 Then,  press "Sync now" in the bar that appears in Android Studio:
