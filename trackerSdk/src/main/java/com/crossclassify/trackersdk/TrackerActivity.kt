@@ -218,12 +218,12 @@ abstract class TrackerActivity : AppCompatActivity(),
                         // total time spent on field
                         interactionTime += view.getAllFocusTime()
                         // if there is a change after taking the metadata, the metadata will be rebuilt and the metadata field will be added.
-                        if (view.changeAfterCreateMetaData) {
+//                        if (view.changeAfterCreateMetaData) {
                             view.createMetaData(isSubmitted)
                             view.getMetaData()?.let {
                                 fieldMetaData.add(it)
                             }
-                        }
+//                        }
                     } else {
                         // if we do not have Get Data, we will pass the action to the timer
                         if (view.changeAfterCreateMetaData && !changeStartTime) {
@@ -448,7 +448,7 @@ abstract class TrackerActivity : AppCompatActivity(),
         lastChangingFieldName = null
 
         interactionTime = 0
-
+        pvId = RandomStringGenerator.getRandomString()
         startTime = System.currentTimeMillis()
     }
 

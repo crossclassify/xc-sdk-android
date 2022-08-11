@@ -4,7 +4,7 @@ class FormMetaData(
     //formView id
     val fa_vid: String,
     //pageView id
-    val pv_id: String,
+    var pv_id: String,
     //form id
     val fa_id: String,
     //first interacted field
@@ -22,7 +22,7 @@ class FormMetaData(
     //form submitted
     val fa_su: Int,
     //fields metadata
-    val fieldsMetaData: List<FieldMetaData>,
+    var fieldsMetaData: List<FieldMetaData>,
     //device id
     val _id: String?,
     // fingerprint
