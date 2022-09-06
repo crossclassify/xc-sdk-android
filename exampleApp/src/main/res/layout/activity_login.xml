@@ -62,7 +62,7 @@
                     <!--                    Field contents are not captured -->
                     <!--                    unless you add IncludeContentTracking Tag -->
                     <!--                    for the field that you need Field Content Tracking.-->
-                    <com.crossclassify.trackersdk.TrackerEditText
+                    <com.crossclassify.trackersdk.utils.view.TrackerEditText
                         android:id="@+id/editTextEmail"
 
                         style="@style/modifiedEditText"
@@ -84,7 +84,7 @@
                     android:layout_marginTop="@dimen/loginViewsMargin"
                     android:textColorHint="@color/hint">
 
-                    <com.crossclassify.trackersdk.TrackerEditText
+                    <com.crossclassify.trackersdk.utils.view.TrackerEditText
                         android:id="@+id/editTextPassword"
                         style="@style/modifiedEditText"
 

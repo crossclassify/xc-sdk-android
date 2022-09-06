@@ -14,19 +14,19 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".commonEpoxyExample.Epoxy2Activity"
+            android:name="com.crossclassify.examlpeapp.ui.commonEpoxyExample.Epoxy2Activity"
             android:exported="false" />
         <activity
-            android:name=".defaultEpoxyWithControllerExample.EpoxyActivity"
+            android:name="com.crossclassify.examlpeapp.ui.defaultEpoxyWithControllerExample.EpoxyActivity"
             android:exported="false" />
         <activity
-            android:name=".defaultRecyclerViewExample.RecyclerActivity"
+            android:name="com.crossclassify.examlpeapp.ui.defaultRecyclerViewExample.RecyclerActivity"
             android:exported="false" />
         <activity
-            android:name=".simpleUsageExample.SignUpActivity"
+            android:name="com.crossclassify.examlpeapp.ui.simpleUsageExample.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".simpleUsageExample.SplashScreenActivity"
+            android:name="com.crossclassify.examlpeapp.ui.simpleUsageExample.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".simpleUsageExample.LoginActivity"
+            android:name="com.crossclassify.examlpeapp.ui.simpleUsageExample.LoginActivity"
             android:exported="true" />
     </application>
 

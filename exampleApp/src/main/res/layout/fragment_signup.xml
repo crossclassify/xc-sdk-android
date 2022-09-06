@@ -63,7 +63,7 @@
                     <!--                    Field contents are not captured -->
                     <!--                    unless you add IncludeContentTracking Tag -->
                     <!--                    for the field that you need Field Content Tracking.-->
-                    <com.crossclassify.trackersdk.TrackerEditText
+                    <com.crossclassify.trackersdk.utils.view.TrackerEditText
                         android:id="@+id/editTextEmail"
 
                         style="@style/modifiedEditText"
@@ -85,7 +85,7 @@
                     android:layout_marginTop="@dimen/loginViewsMargin"
                     android:textColorHint="@color/hint">
 
-                    <com.crossclassify.trackersdk.TrackerEditText
+                    <com.crossclassify.trackersdk.utils.view.TrackerEditText
                         android:id="@+id/editTextPassword"
                         style="@style/modifiedEditText"
 
@@ -104,7 +104,7 @@
                     android:layout_marginTop="@dimen/loginViewsMargin"
                     android:textColorHint="@color/hint">
 
-                    <com.crossclassify.trackersdk.TrackerEditText
+                    <com.crossclassify.trackersdk.utils.view.TrackerEditText
                         android:id="@+id/editTextConfirmPassword"
                         style="@style/modifiedEditText"
 
@@ -118,7 +118,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.crossclassify.trackersdk.TrackerRadioGroup
+                <com.crossclassify.trackersdk.utils.view.TrackerRadioGroup
                     android:id="@+id/radiogroup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -138,15 +138,14 @@
                         android:layout_height="match_parent"
                         android:text="Male"
                         android:textColor="@color/black" />
-                </com.crossclassify.trackersdk.TrackerRadioGroup>
+                </com.crossclassify.trackersdk.utils.view.TrackerRadioGroup>
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:orientation="vertical">
 
-                    <com.crossclassify.trackersdk.TrackerCheckBox
-                        android:id="@+id/checkbox_choice1"
+                    <com.crossclassify.trackersdk.utils.view.TrackerCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:tag="@string/IsTrackable"

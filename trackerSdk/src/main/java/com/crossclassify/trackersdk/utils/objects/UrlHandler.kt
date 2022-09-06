@@ -1,6 +1,6 @@
 package com.crossclassify.trackersdk.utils.objects
 
-import com.crossclassify.trackersdk.model.FormMetaData
+import com.crossclassify.trackersdk.data.model.FormMetaData
 import java.net.URLEncoder
 import java.text.SimpleDateFormat
 import java.util.*
@@ -22,7 +22,6 @@ object UrlHandler {
                 "&fa_fp[0][fa_id]=$formName&fa_fp[0][fa_fv]=1&pf_net=0&pf_srv=4&pf_tfr=2&pf_dm1=63" +
                 "&pv_id=${formMetaData.pv_id}&fa_fp[0][fa_vid]=${formMetaData.fa_vid}"
     }
-
 
     fun generateMetaDataUrl(formMetaData: FormMetaData): String {
 
@@ -75,7 +74,7 @@ object UrlHandler {
 
         var fieldsAttr = "["
 
-        for ((i, field) in formMetaData.fieldsMetaData.withIndex()) {
+        for ((i, field) in formMetaData.fieldsMetaData.withIndex()!!) {
 
             var str =
                 "{\"fa_fts\":${field.fa_fts},\"fa_fht\":${field.fa_fht}," +

@@ -8,7 +8,7 @@
     android:background="@color/white"
     app:cardBackgroundColor="@color/white">
 
-    <com.crossclassify.trackersdk.TrackerRadioGroup
+    <com.crossclassify.trackersdk.utils.view.TrackerRadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,7 +26,7 @@
             android:layout_height="match_parent"
             android:text="no"
             android:textColor="@color/black" />
-    </com.crossclassify.trackersdk.TrackerRadioGroup>
+    </com.crossclassify.trackersdk.utils.view.TrackerRadioGroup>
 
 
 </androidx.cardview.widget.CardView>

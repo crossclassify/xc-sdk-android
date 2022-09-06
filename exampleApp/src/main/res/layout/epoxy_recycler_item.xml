@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <com.crossclassify.trackersdk.TrackerEditText
+        <com.crossclassify.trackersdk.utils.view.TrackerEditText
             android:id="@+id/et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

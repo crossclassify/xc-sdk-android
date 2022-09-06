@@ -2,7 +2,7 @@ package com.crossclassify.trackersdk.utils.objects
 
 import android.view.View
 import android.view.ViewGroup
-import com.crossclassify.trackersdk.service.config.TrackerSdkApplication
+import com.crossclassify.trackersdk.utils.base.TrackerSdkApplication
 import org.matomo.sdk.Tracker
 
 object UiHandler {
@@ -30,6 +30,6 @@ object UiHandler {
 
     /** Get Tracker To Start Track **/
     fun getTracker(application: TrackerSdkApplication): Tracker? {
-        return (application).getTracker()
+        return application.getTracker()
     }
 }

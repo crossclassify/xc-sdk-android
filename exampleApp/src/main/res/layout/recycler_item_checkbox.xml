@@ -9,7 +9,7 @@
     android:background="@color/white">
 
 
-    <com.crossclassify.trackersdk.TrackerCheckBox
+    <com.crossclassify.trackersdk.utils.view.TrackerCheckBox
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
