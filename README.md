@@ -21,7 +21,7 @@ repositories {
 Then, add the code below to your app module `build.gradle` file.
 ```kotlin
 dependencies {
-  implementation 'com.github.crossclassify:xc-sdk-android:1.4.0'
+  implementation 'com.github.crossclassify:xc-sdk-android:1.5.0'
 }
 ```
 Then,  press "Sync now" in the bar that appears in Android Studio:
@@ -71,11 +71,11 @@ For the form that you need form content and behavior analysis in it, do the foll
 - Use `TrackerEditText`, `TrackerRadioGroup` and `TrackerCheckBox` for your fields in XML file and set each `field name`, `radio_field_name` and `check_box_field_name` to fieldName that allows us to provide [Form Behavioral Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations). 
 ```xml
     <!--CHANGE BEFORE COMPILE-->
-    <com.crossclassify.trackersdk.TrackerEditText
+    <com.crossclassify.trackersdk.utils.view.TrackerEditText
       app:fieldName= <YOUR_FIELD_NAME>
     />
 
-    <com.crossclassify.trackersdk.TrackerRadioGroup
+    <com.crossclassify.trackersdk.utils.view.TrackerRadioGroup
         app:radio_field_name= <YOUR_FIELD_NAME>
 
         <RadioButton
@@ -89,7 +89,7 @@ For the form that you need form content and behavior analysis in it, do the foll
             />
     </com.crossclassify.trackersdk.TrackerRadioGroup>
 
-    <com.crossclassify.trackersdk.TrackerCheckBox
+    <com.crossclassify.trackersdk.utils.view.TrackerCheckBox
       android:text= <YOUR_TEXT>
       app:check_box_field_name= <YOUR_FIELD_NAME>
     />
@@ -97,7 +97,7 @@ For the form that you need form content and behavior analysis in it, do the foll
 - Field contents are not captured unless you add IncludeContentTracking Tag, regardless to field type, for the field that you need [Field Content Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations).
 ```xml
 <!--CHANGE BEFORE COMPILE--> 
-<com.crossclassify.trackersdk.TrackerEditText
+<com.crossclassify.trackersdk.utils.view.TrackerEditText
     android:tag="IncludeContentTracking"                                         
     app:fieldName= <YOUR_FIELD_NAME>
    />
@@ -137,14 +137,14 @@ In case that you need recyclerview or epoxy recyclerview follow some more steps 
     <!--Set fieldName for all form fields, no matter where they are -->
  
     <!--Remember by setting tag for field we have access to its data -->
-    <com.crossclassify.trackersdk.TrackerEditText
+    <com.crossclassify.trackersdk.utils.view.TrackerEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:fieldName="Email"
         android:tag="IncludeContentTracking"/>
 
     <!--Remember without tag we don't collect field data  -->
-    <com.crossclassify.trackersdk.TrackerEditText
+    <com.crossclassify.trackersdk.utils.view.TrackerEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:fieldName="Password"/>
@@ -210,7 +210,7 @@ private val metaData: HashMap<Int, FieldMetaData?> = HashMap()
 ```
 - In `onBindViewHolder()` go ahead and do the following for each field
     - Call `loadState()`, This method is used to bind the views and load their latest state, it takes the following three parameters as input then it returns updated metadata and you have to update hashmap list with this value to store the current metadata state of each field
-      - id: This parameter is used to store the user's state while interacting with the form and must have a unique value
+      - id: This parameter is used to store the user's state while interacting with the form and must have a unique value in entire project
       - metadata: This parameter is used to update metadata, if metadata already exists we send it to the method, otherwise we send null value to it.
       - text: This parameter is for editText and is used to set the initial text
     - Call `setFieldName()` and pass a name for fields
@@ -281,7 +281,7 @@ class Holder: EpoxyHolder() {
 ```
 - In `bind()` go ahead and do the following for each field
     - Call `loadState()`, This method is used to bind the views and load their latest state, it takes the following three parameters as input then it returns updated metadata and you have to update hashmap list with this value to store the current metadata state of each field
-      - id: This parameter is used to store the user's state while interacting with the form and must have a unique value
+      - id: This parameter is used to store the user's state while interacting with the form and must have a unique value in entire project
       - metadata: This parameter is used to update metadata, if metadata already exists we send it to the method, otherwise we send null value to it.
       - text: This parameter is for editText and is used to set the initial text
     - Call `setFieldName()` and pass a name for fields
