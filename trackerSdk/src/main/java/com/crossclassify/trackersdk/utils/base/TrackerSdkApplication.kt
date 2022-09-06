@@ -118,21 +118,8 @@ abstract class TrackerSdkApplication : Application() {
 
     /** Initialize Matomo EndPoint **/
     fun onCreateTrackerConfig(): TrackerBuilder {
-
-        var apiUrl = ""
-        when (Values.CC_API) {
-            0 -> {
-                apiUrl = "https://9a2n6dh7ae.execute-api.ap-southeast-2.amazonaws.com/matomo.php"
-            }
-            1 -> {
-                apiUrl = "https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/matomo.php"
-            }
-            2 -> {
-                apiUrl = "https://i1uaiuond3.execute-api.ap-southeast-2.amazonaws.com/matomo.php"
-            }
-        }
         return TrackerBuilder.createDefault(
-            apiUrl,
+            "https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/matomo.php",
             this.mSiteId
         )
     }

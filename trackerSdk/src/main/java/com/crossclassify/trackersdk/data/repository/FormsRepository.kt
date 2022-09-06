@@ -41,18 +41,7 @@ class FormsRepository(private val context: Context) {
         return try {
             if (formName !in forms) {
                 var newFormPath = UrlHandler.generateNewFormUrl(formMetaData, formName)
-                var baseUrl =""
-                when(Values.CC_API){
-                    0 ->{
-                        baseUrl = "https://9a2n6dh7ae.execute-api.ap-southeast-2.amazonaws.com/"
-                    }
-                    1->{
-                        baseUrl ="https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/"
-                    }
-                    2->{
-                        baseUrl ="https://i1uaiuond3.execute-api.ap-southeast-2.amazonaws.com/"
-                    }
-                }
+                var baseUrl ="https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/"
                 newFormPath = baseUrl + newFormPath
                 val newFormCall = Api.client(context).sendData(newFormPath)
                 Timber.tag("crossClassifyGenerateNewForm: ").i(newFormPath)
@@ -78,18 +67,7 @@ class FormsRepository(private val context: Context) {
             if(formMetaData.fieldsMetaData.isNotEmpty()) {
                 /** Generate Url **/
                 var metaDataPath = UrlHandler.generateMetaDataUrl(formMetaData)
-                var baseUrl=""
-                when(Values.CC_API){
-                    0 ->{
-                        baseUrl = "https://9a2n6dh7ae.execute-api.ap-southeast-2.amazonaws.com/"
-                    }
-                    1->{
-                        baseUrl ="https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/"
-                    }
-                    2->{
-                        baseUrl ="https://i1uaiuond3.execute-api.ap-southeast-2.amazonaws.com/"
-                    }
-                }
+                var baseUrl ="https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/"
                 metaDataPath = baseUrl+metaDataPath
                 Timber.tag("crossClassifySentMetaData: ").i(metaDataPath)
                 /** Send API Request **/
