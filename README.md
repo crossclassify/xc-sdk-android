@@ -87,7 +87,7 @@ For the form that you need form content and behavior analysis in it, do the foll
             android:text= <YOUR_TEXT>
                      ...
             />
-    </com.crossclassify.trackersdk.TrackerRadioGroup>
+    </com.crossclassify.trackersdk.utils.view.TrackerRadioGroup>
 
     <com.crossclassify.trackersdk.utils.view.TrackerCheckBox
       android:text= <YOUR_TEXT>
