@@ -6,22 +6,27 @@
 
 To make it easy for you to get started with crossclassify SDK, here's a list of recommended next steps.
 
- [Set SDK To Gradle](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-SDK-To-Gradle) \
- [Set Base Class](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Base-Class) \
- [Set Screen Navigation Analysis](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Screen-Navigation-Analysis) \
- [Set Form Content and Behavior Analysis](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Form-Content-and-Behavior-Analysis)
+[Set SDK To Gradle](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-SDK-To-Gradle) \
+[Set Base Class](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Base-Class) \
+[Set Screen Navigation Analysis](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Screen-Navigation-Analysis) \
+[Set Form Content and Behavior Analysis](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Form-Content-and-Behavior-Analysis)
 
 #### 1.Set SDK To Gradle
 First, add this code on your `settings.gradle` and project `build.gradle` file.
 ```kotlin
 repositories {
-  maven { url 'https://jitpack.io' }
+    maven { url 'https://jitpack.io' }
 }
 ```
 Then, add the code below to your app module `build.gradle` file.
 ```kotlin
+defaultConfig {
+        ...
+        targetSdk 31
+    }
+    
 dependencies {
-  implementation 'com.github.crossclassify:xc-sdk-android:1.5.0'
+    implementation 'com.github.lana2882:crossclassify:0.8'
 }
 ```
 Then,  press "Sync now" in the bar that appears in Android Studio:
@@ -34,7 +39,7 @@ android.enableJetifier=true
 
 #### 2.Set Base Class
 First, Create MyApplication class on separate file  
-Then, you need to extend **TrackerSdkApplication** and override `onCreate()` method and pass your sideId like below. 
+Then, you need to extend **TrackerSdkApplication** and override `onCreate()` method and pass your sideId like below.
 ```kotlin
 class MyApplication : TrackerSdkApplication() {
     override fun onCreate() {
@@ -55,7 +60,7 @@ Don't forget to add the code below to your `AndroidManifest.xml`
 
 #### 3.Set Screen Navigation Analysis
 
-For [Screen Navigation Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations) override `onResume()` method of your class (Activity,Fragment, BottomSheetDialogFragment or DialogFragment) and add the code below.  
+For [Screen Navigation Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations) override `onResume()` method of your class (Activity,Fragment, BottomSheetDialogFragment or DialogFragment) and add the code below.
 ```kotlin
 override fun onResume() {
    super.onResume()
@@ -68,7 +73,9 @@ override fun onResume() {
 For the form that you need form content and behavior analysis in it, do the following.
 ##### XML Part:
 - We have supported editText, radioGroup and checkBox for form fields.
-- Use `TrackerEditText`, `TrackerRadioGroup` and `TrackerCheckBox` for your fields in XML file and set each `field name`, `radio_field_name` and `check_box_field_name` to fieldName that allows us to provide [Form Behavioral Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations). 
+- Use `TrackerEditText`, `TrackerRadioGroup` and `TrackerCheckBox` for your fields in XML file and set each `field name`, `radio_field_name` and `check_box_field_name` to fieldName that allows us to provide [Form Behavioral Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations).
+
+:warning: **for field that contain email, field name must be "email" string in lowercase.**
 ```xml
     <!--CHANGE BEFORE COMPILE-->
     <com.crossclassify.trackersdk.utils.view.TrackerEditText
@@ -108,15 +115,19 @@ For the form that you need form content and behavior analysis in it, do the foll
 -  Override `getFormName()` method and define a name for your form
 -  Override `getExternalMetaData()` (if you don't have recyclerview just return null).
 
+:warning: **for sign up forms , your form name must contain "singnup" string without space.**
 ```kotlin
 class MainActivity : TrackerActivity() {
     override fun getFormName(): String = <YOUR_FORM_NAME> //CHANGE BEFORE COMPILE
     override fun getExternalMetaData(): List<FieldMetaData>? = null
 }
 ```
-- Both behavioral and content tracking rely on setting `onclicklistener` for your submit button and call `trackerClickSubmitButton()` as below:
+- Both behavioral and content tracking rely on setting `onclicklistener` for your submit button and call `trackerClickSubmitButton()` in the last line of it, because it will erase field contents. as below:
 ```kotlin
 submitButton.setOnClickListener {
+    ...
+    ...
+    ...
     trackerClickSubmitButton()
 }
 ```
@@ -140,14 +151,14 @@ In case that you need recyclerview or epoxy recyclerview follow some more steps 
     <com.crossclassify.trackersdk.utils.view.TrackerEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:fieldName="Email"
+        app:fieldName="email"
         android:tag="IncludeContentTracking"/>
 
     <!--Remember without tag we don't collect field data  -->
     <com.crossclassify.trackersdk.utils.view.TrackerEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:fieldName="Password"/>
+        app:fieldName="password"/>
 
     <!--Use onClickListener on your submit button  -->
     <Button
@@ -198,21 +209,21 @@ class LoginActivity : TrackerActivity() {
 More steps to integrate with recycler view.
 ##### Adapter
 - Implement your `recyclerView Adapter` which should take the following listener as input parameter.
-  - Listener: Used to send information when the user is in idle mode, and sent to views via the `setAction()` method.
+    - Listener: Used to send information when the user is in idle mode, and sent to views via the `setAction()` method.
 ```kotlin
 class RecyclerViewAdapter(private val listener: TrackerActions) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {}
 ```
 - In adapter go ahead and create a hashmap list.
-  - Hashmap list: To store the form metadata, we need a collection that is filled through the `loadState()` method and finally sent to the SDK through the `getExternalMetaData()` method that has been overridden.
+    - Hashmap list: To store the form metadata, we need a collection that is filled through the `loadState()` method and finally sent to the SDK through the `getExternalMetaData()` method that has been overridden.
 ```kotlin
 private val metaData: HashMap<Int, FieldMetaData?> = HashMap()
 ```
 - In `onBindViewHolder()` go ahead and do the following for each field
     - Call `loadState()`, This method is used to bind the views and load their latest state, it takes the following three parameters as input then it returns updated metadata and you have to update hashmap list with this value to store the current metadata state of each field
-      - id: This parameter is used to store the user's state while interacting with the form and must have a unique value in entire project
-      - metadata: This parameter is used to update metadata, if metadata already exists we send it to the method, otherwise we send null value to it.
-      - text: This parameter is for editText and is used to set the initial text
+        - id: This parameter is used to store the user's state while interacting with the form and must have a unique value in entire project
+        - metadata: This parameter is used to update metadata, if metadata already exists we send it to the method, otherwise we send null value to it.
+        - text: This parameter is for editText and is used to set the initial text
     - Call `setFieldName()` and pass a name for fields
     - Call `setAction()` and pass TrackerAction listener to it
     - In case that you need content tracking add IncludeContentTracking tag
@@ -281,9 +292,9 @@ class Holder: EpoxyHolder() {
 ```
 - In `bind()` go ahead and do the following for each field
     - Call `loadState()`, This method is used to bind the views and load their latest state, it takes the following three parameters as input then it returns updated metadata and you have to update hashmap list with this value to store the current metadata state of each field
-      - id: This parameter is used to store the user's state while interacting with the form and must have a unique value in entire project
-      - metadata: This parameter is used to update metadata, if metadata already exists we send it to the method, otherwise we send null value to it.
-      - text: This parameter is for editText and is used to set the initial text
+        - id: This parameter is used to store the user's state while interacting with the form and must have a unique value in entire project
+        - metadata: This parameter is used to update metadata, if metadata already exists we send it to the method, otherwise we send null value to it.
+        - text: This parameter is for editText and is used to set the initial text
     - Call `setFieldName()` and pass a name for fields
     - Call `setAction()` and pass TrackerAction listener to it
     - In case that you need content tracking add IncludeContentTracking tag
@@ -298,12 +309,12 @@ override fun bind(holder: Holder) {
 ```
 #### Controller
 - Implement your `controller` which should take the following listener as input parameter.
-  - Listener: Used to send information when the user is in idle mode, and sent to views via the `setAction()` method.
+    - Listener: Used to send information when the user is in idle mode, and sent to views via the `setAction()` method.
 ```kotlin
 class UserController (private val listener: TrackerActions): EpoxyController() {}
 ```
 - In controller go ahead and create a hashmap list.
-  - Hashmap list: To store the form metadata, we need a collection that is filled through the `loadState()` method and finally sent to the SDK through the `getExternalMetaData()` method that has been overridden.
+    - Hashmap list: To store the form metadata, we need a collection that is filled through the `loadState()` method and finally sent to the SDK through the `getExternalMetaData()` method that has been overridden.
 ```kotlin
 private val metaData: HashMap<Int, FieldMetaData?> = HashMap()
 ```
@@ -316,33 +327,33 @@ fun getMetaData(): List<FieldMetaData?> {
 - In `buildModels()` method for each model object initialize attributes
 ```kotlin
     override fun buildModels() {
-        _users.forEachIndexed { index, s ->
-            user {
-                id(index)
-                title(index.toString())
-                value(this@UserController._users[index])
-                position(index)
-                listener(this@UserController.listener)
-                fieldMetaData(this@UserController.metaData[index])
-                updateMetaData { fieldMetaData -> this@UserController.metaData[index] = fieldMetaData }
-            }
-
+    _users.forEachIndexed { index, s ->
+        user {
+            id(index)
+            title(index.toString())
+            value(this@UserController._users[index])
+            position(index)
+            listener(this@UserController.listener)
+            fieldMetaData(this@UserController.metaData[index])
+            updateMetaData { fieldMetaData -> this@UserController.metaData[index] = fieldMetaData }
         }
+
     }
+}
 ```
 #### EpoxyRecyclerView Host
 - Override `getExternalMetaData()`; You must send the field metadata to the SDK through this method, which first takes the metadata of the fields by calling `getMetaData()` from the controller and then sends it to the SDK.
 ```kotlin
 override fun getExternalMetaData(): List<FieldMetaData> {
-        val data = controller.getMetaData()
-        val result = ArrayList<FieldMetaData>()
-        for (metaData in data) {
-            metaData?.let {
-                result.add(metaData)
-            }
+    val data = controller.getMetaData()
+    val result = ArrayList<FieldMetaData>()
+    for (metaData in data) {
+        metaData?.let {
+            result.add(metaData)
         }
-        return result
     }
+    return result
+}
 ```
 - Check out the sample app that came with the library for more details on EpoxyRecyclerView
 #### Clear Data
@@ -355,11 +366,11 @@ controller.requestModelBuild()
 // notify changes in recyclerview
 adapter.notifyDataSetChanged()
 ```
-- Just reset some of items by passing their id list as parameter; notice that the ids are unique in entire project 
+- Just reset some of items by passing their id list as parameter; notice that the ids are unique in entire project
 ```kotlin
 clearData(  editTexts = true,editTextIds = listIds,
-            checkBox = true,checkBoxIds = listIds,
-            radioButtons = true,radioIds = listIds)
+    checkBox = true,checkBoxIds = listIds,
+    radioButtons = true,radioIds = listIds)
 // notify changes in epoxy
 controller.requestModelBuild()
 // notify changes in recyclerview
