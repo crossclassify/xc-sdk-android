@@ -38,7 +38,7 @@ object UrlHandler {
         val seconds: Int = calendar.get(Calendar.SECOND)
 
         var path = "matomo.php?fa_vid=${formMetaData.fa_vid}" +
-                "&fa_id=${formMetaData.fa_id}&fa_ef=${formMetaData.fa_ef}" +
+                "&fa_id=${formMetaData.fa_id}&fa_name=${formMetaData.fa_id}&fa_ef=${formMetaData.fa_ef}" +
                 "&fa_lf=${formMetaData.fa_lf}&fa_fields=$fields&fa_ts=${formMetaData.fa_ts}&ca=${formMetaData.ca}" +
                 "&idsite=${formMetaData.id_site}&rec=${formMetaData.rec}" +
                 "&r=${formMetaData.r}&h=$hour&m=$minutes" +
