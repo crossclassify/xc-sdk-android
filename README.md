@@ -102,7 +102,7 @@ For the form that you need form content and behavior analysis in it, do the foll
       app:check_box_field_name= <YOUR_FIELD_NAME>
     />
 ```
-- Field contents are not captured unless you add IncludeContentTracking Tag, regardless to field type, for the field that you need [Field Content Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations).
+- Field contents are not captured unless you add IncludeContentTracking Tag, regardless to field type, for the field that you need **Field Content Tracking**.
 ```xml
 <!--CHANGE BEFORE COMPILE--> 
 <com.crossclassify.trackersdk.utils.view.TrackerEditText
@@ -139,7 +139,7 @@ submitButton.setOnClickListener {
     trackerClickSubmitButton()
 }
 ```
-In case that you need recyclerview or epoxy recyclerview follow some more steps [here](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Form-Analytics-with-recyclerView).
+In case that you need recyclerview or epoxy recyclerview follow some more steps [here](https://github.com/crossclassify/xc-sdk-android/#form-analytics-with-recyclerview).
 
 **Here is a complete example for your reference**
 <br/> activity_signup.xml
