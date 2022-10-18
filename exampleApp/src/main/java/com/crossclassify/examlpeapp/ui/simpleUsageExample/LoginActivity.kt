@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 //extend from TrackerActivity if you have form in activity and need form content and behavior analysis
 class LoginActivity : TrackerActivity() {
     //override getFormName and define a name for your form
-    override fun getFormName(): String = "user-login"
+    override fun getFormName(): String = "signup-home"
     //use it in case that you have recyclerView
     override fun getExternalMetaData(): List<FieldMetaData>? {
         return null

@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_epoxy.*
 class EpoxyActivity : TrackerActivity() {
     private var controller = EpoxyController(this)
     private val list= ArrayList<String>()
-    override fun getFormName(): String = "epoxy-rv-list"
+    override fun getFormName(): String = "signup-in-epoxy1"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -12,7 +12,7 @@ import com.crossclassify.trackersdk.utils.base.TrackerActivity
 class RecyclerActivity : TrackerActivity() {
     private lateinit var adapter: RecyclerViewAdapter
     override fun getFormName(): String {
-        return "default-rv-list"
+        return "signup-in-recycler"
     }
 
     private lateinit var recyclerView: RecyclerView

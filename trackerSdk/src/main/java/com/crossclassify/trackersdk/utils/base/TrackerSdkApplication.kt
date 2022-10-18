@@ -1,10 +1,12 @@
 package com.crossclassify.trackersdk.utils.base
 
 import android.app.Application
+import android.util.Log
 import com.crossclassify.trackersdk.utils.objects.Values
 import com.fingerprintjs.android.fingerprint.Configuration
 import com.fingerprintjs.android.fingerprint.Fingerprinter
 import com.fingerprintjs.android.fingerprint.FingerprinterFactory
+import com.fingerprintjs.android.fpjs_pro.FingerprintJSFactory
 import org.matomo.sdk.Matomo
 import org.matomo.sdk.TrackMe
 import org.matomo.sdk.Tracker
@@ -67,23 +69,44 @@ abstract class TrackerSdkApplication : Application() {
         if ((mMode != Values.CC_API) || mMatomoTracker == null) {
             mMatomoTracker = onCreateTrackerConfig().build(getMatomo()).apply {
 
+
+                //TODO: PAID FINGERPRINT
+                val factory = FingerprintJSFactory(applicationContext)
+                val configuration = com.fingerprintjs.android.fpjs_pro.Configuration(
+                    "nLvTePYiYEFERqTHoSZ7"
+                )
+
+                val fpjsClient = factory.createInstance(
+                    configuration
+                )
+                val sharedPreferences = getSharedPreferences(
+                    "org.matomo.sdk_FE8DB41078DFFC3D9751687595C3B837",
+                    MODE_PRIVATE
+                )
                 val fingerprint: Fingerprinter = FingerprinterFactory
                     .getInstance(applicationContext, Configuration(version = 3))
 
-                fingerprint.getFingerprint {
-                    userId = it.fingerprint
+                if (userId==null){
+                    fpjsClient.getVisitorId {
+                        userId = it.visitorId
+                        Log.e("userId",userId)
+                        sharedPreferences.edit().putString("tracker.fingerprint", userId).apply()
+                    }
                 }
 
+                while(userId==null)
+                {
+                    Thread.sleep(1000)
+                }
+//                fingerprint.getFingerprint {
+//                    userId = it.fingerprint
+//                }
                 fingerprint.getDeviceId { result ->
                     visitorId = result.deviceId
-                    val sharedPreferences = getSharedPreferences(
-                        "org.matomo.sdk_FE8DB41078DFFC3D9751687595C3B837",
-                        MODE_PRIVATE
-                    )
                     sharedPreferences.edit().putString("tracker.visitorid", visitorId).apply()
-                    sharedPreferences.edit().putString("tracker.fingerprint", userId).apply()
                 }
             }
+
             mMode = Values.CC_API
         }
         return mMatomoTracker
@@ -119,7 +142,7 @@ abstract class TrackerSdkApplication : Application() {
     /** Initialize Matomo EndPoint **/
     fun onCreateTrackerConfig(): TrackerBuilder {
         return TrackerBuilder.createDefault(
-            "https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/matomo.php",
+            "https://api.crossclassify.com/matomo/matomo.php",
             this.mSiteId
         )
     }

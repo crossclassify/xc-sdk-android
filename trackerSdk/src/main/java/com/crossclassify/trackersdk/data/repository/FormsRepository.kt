@@ -10,7 +10,6 @@ import com.crossclassify.trackersdk.data.config.Api
 import com.crossclassify.trackersdk.utils.objects.ConfigPreferencesSerializer
 import com.crossclassify.trackersdk.utils.objects.DATA_STORE_FILE_NAME
 import com.crossclassify.trackersdk.utils.objects.UrlHandler
-import com.crossclassify.trackersdk.utils.objects.Values
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
@@ -41,7 +40,7 @@ class FormsRepository(private val context: Context) {
         return try {
             if (formName !in forms) {
                 var newFormPath = UrlHandler.generateNewFormUrl(formMetaData, formName)
-                var baseUrl ="https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/"
+                var baseUrl ="https://api.crossclassify.com/matomo/"
                 newFormPath = baseUrl + newFormPath
                 val newFormCall = Api.client(context).sendData(newFormPath)
                 Timber.tag("crossClassifyGenerateNewForm: ").i(newFormPath)
@@ -67,7 +66,7 @@ class FormsRepository(private val context: Context) {
             if(formMetaData.fieldsMetaData.isNotEmpty()) {
                 /** Generate Url **/
                 var metaDataPath = UrlHandler.generateMetaDataUrl(formMetaData)
-                var baseUrl ="https://7afy3zglhe.execute-api.ap-southeast-2.amazonaws.com/"
+                var baseUrl ="https://api.crossclassify.com/matomo/"
                 metaDataPath = baseUrl+metaDataPath
                 Timber.tag("crossClassifySentMetaData: ").i(metaDataPath)
                 /** Send API Request **/

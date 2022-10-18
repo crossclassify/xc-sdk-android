@@ -15,7 +15,7 @@ class Epoxy2Activity : TrackerActivity(), EpoxyPassItems {
     private val epoxyListMetadata = HashMap<Long, FieldMetaData>()
     private lateinit var controller:EpoxyController
 
-    override fun getFormName(): String = "epoxy2-rv-list"
+    override fun getFormName(): String = "signup-in-epoxy2"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

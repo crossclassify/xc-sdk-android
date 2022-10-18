@@ -15,7 +15,8 @@ import kotlinx.android.synthetic.main.fragment_signup.*
 //extend from TrackerFragment if you have form and need form content and behavior analysis in fragment
 //override setFormName and define a name for your form
 class SignUpFragment : TrackerFragment() {
-    override fun getFormName(): String = "your-form-name"
+
+    override fun getFormName(): String = "signup-form"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,12 +30,14 @@ class SignUpFragment : TrackerFragment() {
         super.onViewCreated(view, savedInstanceState)
         //set onClickListener for your submit button and call trackerClickSubmitButton()
         btnSubmitFragment.setOnClickListener {
-            trackerClickSubmitButton()
             Toast.makeText(
                 activity,
                 "Thanks for signing up. Welcome to our community.",
                 Toast.LENGTH_SHORT
             ).show()
+
+            trackerClickSubmitButton()
+
         }
 
         goToLogin.setOnClickListener {

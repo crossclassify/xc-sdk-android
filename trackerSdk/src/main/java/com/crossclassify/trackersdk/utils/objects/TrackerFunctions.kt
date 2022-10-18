@@ -2,6 +2,7 @@ package com.crossclassify.trackersdk.utils.objects
 
 import android.content.Context
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.children
@@ -39,6 +40,20 @@ class TrackerFunctions {
         this.formRepo = formsRepository
         this.bitaApplicationContext = fragmentActivity.applicationContext
         this.deviceId = getDeviceId(context)
+
+        var formName = trackerFun.getFormName()
+        if (!formName.contains("signup")) {
+            Log.e(
+                "crossclassify:",
+                "you have set $formName as form name but for account opening fraud," +
+                        "your form name must contain \"signup\" string, unless we are not able to capture your data.\n" +
+                        "please use these examples: signup-form, signup-application-name"
+            )
+        } else if (formName.contains("signin") or formName.contains("login")) {
+            Log.e("crossclassify:", "you shouldn't use both \"signin\" and \"signup\" in form name.\n"+
+                    "please use these examples: signup-form, signup-application-name")
+        }
+
         this.faId = trackerFun.getFormName()
         this.fingerprint = getFingerPrint(context)
         this.resolution = getResolution(fragmentActivity)

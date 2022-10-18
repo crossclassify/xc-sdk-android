@@ -1,5 +1,6 @@
 package com.crossclassify.trackersdk.utils.objects
 
+import android.util.Log
 import com.crossclassify.trackersdk.data.model.FormMetaData
 import java.net.URLEncoder
 import java.text.SimpleDateFormat
@@ -73,8 +74,14 @@ object UrlHandler {
     private fun generateFieldsUrl(formMetaData: FormMetaData): String {
 
         var fieldsAttr = "["
+        var containEmail =false
 
         for ((i, field) in formMetaData.fieldsMetaData.withIndex()!!) {
+
+            //ToDo: new
+            if((formMetaData.fa_su==1) and (field.fa_fn == "email")){
+                containEmail = true
+            }
 
             var str =
                 "{\"fa_fts\":${field.fa_fts},\"fa_fht\":${field.fa_fht}," +
@@ -97,6 +104,9 @@ object UrlHandler {
         }
 
         fieldsAttr += "]"
+
+        if((formMetaData.fa_su ==1) and (!containEmail))
+            Log.e("crossclassify:","For account opening fraud detection, you must have a field which name is \"email\" and contains the content of the email.")
 
         return fieldsAttr
     }

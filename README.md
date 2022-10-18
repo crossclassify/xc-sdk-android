@@ -26,7 +26,7 @@ defaultConfig {
     }
     
 dependencies {
-    implementation 'com.github.crossclassify:xc-sdk-android:2.5.7'
+    implementation 'com.github.lana2882:crossclassify:0.8'
 }
 ```
 Then,  press "Sync now" in the bar that appears in Android Studio:
@@ -43,7 +43,7 @@ Then, you need to extend **TrackerSdkApplication** and override `onCreate()` met
 ```kotlin
 class MyApplication : TrackerSdkApplication() {
     override fun onCreate() {
-        //place your siteId here(siteId = 19)
+        //place your siteId here
         createDefaultConfig( <SITE-ID> )  //CHANGE BEFORE COMPILE
         super.onCreate()
     }
@@ -75,7 +75,7 @@ For the form that you need form content and behavior analysis in it, do the foll
 - We have supported editText, radioGroup and checkBox for form fields.
 - Use `TrackerEditText`, `TrackerRadioGroup` and `TrackerCheckBox` for your fields in XML file and set each `field name`, `radio_field_name` and `check_box_field_name` to fieldName that allows us to provide [Form Behavioral Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations).
 
-:warning: **for field that contain email, field name must be "email" string in lowercase.**
+:warning: **For account opening fraud detection, you must have a field which name is "email" and contains the content of the email.**
 ```xml
     <!--CHANGE BEFORE COMPILE-->
     <com.crossclassify.trackersdk.utils.view.TrackerEditText
@@ -112,12 +112,19 @@ For the form that you need form content and behavior analysis in it, do the foll
 ##### Kotlin Part:
 - Depend on where you need to implement form
 - Extend from `TrackerActivity`, `TrackerFragment`, `BottomSheetDialogFragment` or  `DialogFragment`
--  Override `getFormName()` method and define a name for your form
+-  Override `getFormName()` method and define a name for your form, this name must contain "signup" string.
 -  Override `getExternalMetaData()` (if you don't have recyclerview just return null).
 
-:warning: **for sign up forms , your form name must contain "singnup" string without space.**
+### :warning: **Warning**
+- For account opening fraud, your form name must contain "singnup" string **(without space or dash in between)**.
+- **DO NOT** use both "signup" and "login" strings in a single string as form name.
+- **BAD EXAMPLES**:
+  - sign up, sign-up, signup-login, signup-signin
+
 ```kotlin
 class MainActivity : TrackerActivity() {
+    // form name must contain "signup" string. 
+    // example: signup-form
     override fun getFormName(): String = <YOUR_FORM_NAME> //CHANGE BEFORE COMPILE
     override fun getExternalMetaData(): List<FieldMetaData>? = null
 }
@@ -134,7 +141,7 @@ submitButton.setOnClickListener {
 In case that you need recyclerview or epoxy recyclerview follow some more steps [here](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Form-Analytics-with-recyclerView).
 
 **Here is a complete example for your reference**
-<br/> activity_login.xml
+<br/> activity_signup.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -146,7 +153,7 @@ In case that you need recyclerview or epoxy recyclerview follow some more steps 
 
     <!--Go ahead and design your xml just don't forget these notes -->
     <!--Set fieldName for all form fields, no matter where they are -->
- 
+    <!--For account opening fraud detection, you must have a field which name is "email" and contains the content of the email. -->
     <!--Remember by setting tag for field we have access to its data -->
     <com.crossclassify.trackersdk.utils.view.TrackerEditText
         android:layout_width="match_parent"
@@ -171,20 +178,21 @@ In case that you need recyclerview or epoxy recyclerview follow some more steps 
 
 ```
 
-LoginActivity.kt
+SignupActivity.kt
 ```kotlin
 
 
 /** extend from TrackerActivity if you have form in activity
 and need form content and behavior analysis, then
-override getFormName and define a name for your form **/
-class LoginActivity : TrackerActivity() {
-    override fun getFormName(): String = "login-form"
+override getFormName and define a name for your form which must contain "signup" string.**/
+class SignupActivity : TrackerActivity() {
+    // form name must contain "signup" string.
+    override fun getFormName(): String = "signup-form"
     override fun getExternalMetaData(): List<FieldMetaData>? = null
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_signup)
 
         /** set onClickListener for your submit button
         call trackerClickSubmitButton() **/
@@ -199,7 +207,7 @@ class LoginActivity : TrackerActivity() {
         /** pass activity path and title to trackNavigation method
         for screen navigation purposes **/
         ScreenNavigationTracking().trackNavigation(
-            "/activity_splash/activity_login", "Login"
+            "/activity_splash/activity_signup", "signup"
         )
     }
 
@@ -207,6 +215,7 @@ class LoginActivity : TrackerActivity() {
 ```
 #### Form Analytics with recyclerView
 More steps to integrate with recycler view.
+Use this in case that your form is inside recyclerview.
 ##### Adapter
 - Implement your `recyclerView Adapter` which should take the following listener as input parameter.
     - Listener: Used to send information when the user is in idle mode, and sent to views via the `setAction()` method.
@@ -262,6 +271,7 @@ fun getMetaData(): List<FieldMetaData?> {
 
 #### Form Analytics With EpoxyRecyclerView
 More steps to integrate with recycler view.
+Use this in case that your form is inside EpoxyRecyclerView.
 ##### EpoxyModelClass
 - Here is an idea for integration with EpoxyRecyclerView
 - Create your model with these attributes
@@ -379,4 +389,7 @@ adapter.notifyDataSetChanged()
 #### Done
 Adding CrossClassify to your App Done successfuly.
 Now we are waiting for the first data.
-
+* * *
+#### Changelog
+##### **1.0.0**
+- first stable build
