@@ -6,10 +6,10 @@
 
 To make it easy for you to get started with crossclassify SDK, here's a list of recommended next steps.
 
-[Set SDK To Gradle](https://github.com/crossclassify/xc-sdk-android/edit/main/README.md#1set-sdk-to-gradlee) \
-[Set Base Class](https://github.com/crossclassify/xc-sdk-android/edit/main/README.md#2set-base-class) \
-[Set Screen Navigation Analysis](https://github.com/crossclassify/xc-sdk-android/edit/main/README.md#3set-screen-navigation-analysis) \
-[Set Form Content and Behavior Analysis](https://github.com/crossclassify/xc-sdk-android/edit/main/README.md#4set-form-content-and-behavior-analysis)
+[Set SDK To Gradle](https://github.com/crossclassify/xc-sdk-android/#1set-sdk-to-gradlee) \
+[Set Base Class](https://github.com/crossclassify/xc-sdk-android/#2set-base-class) \
+[Set Screen Navigation Analysis](https://github.com/crossclassify/xc-sdk-android/#3set-screen-navigation-analysis) \
+[Set Form Content and Behavior Analysis](https://github.com/crossclassify/xc-sdk-android/#4set-form-content-and-behavior-analysis)
 
 #### 1.Set SDK To Gradle
 First, add this code on your `settings.gradle` and project `build.gradle` file.
