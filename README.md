@@ -6,16 +6,17 @@
 
 To make it easy for you to get started with crossclassify SDK, here's a list of recommended next steps.
 
-[Set SDK To Gradle](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-SDK-To-Gradle) \
-[Set Base Class](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Base-Class) \
-[Set Screen Navigation Analysis](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Screen-Navigation-Analysis) \
-[Set Form Content and Behavior Analysis](https://github.com/FatemeZahraFeyzi/cc-sdk-android-after-feedback/edit/master/README.md#Set-Form-Content-and-Behavior-Analysis)
+[Set SDK To Gradle](https://github.com/crossclassify/xc-sdk-android/edit/main/README.md#1set-sdk-to-gradlee) \
+[Set Base Class](https://github.com/crossclassify/xc-sdk-android/edit/main/README.md#2set-base-class) \
+[Set Screen Navigation Analysis](https://github.com/crossclassify/xc-sdk-android/edit/main/README.md#3set-screen-navigation-analysis) \
+[Set Form Content and Behavior Analysis](https://github.com/crossclassify/xc-sdk-android/edit/main/README.md#4set-form-content-and-behavior-analysis)
 
 #### 1.Set SDK To Gradle
 First, add this code on your `settings.gradle` and project `build.gradle` file.
 ```kotlin
 repositories {
     maven { url 'https://jitpack.io' }
+    maven { url 'https://maven.fpregistry.io/releases' }
 }
 ```
 Then, add the code below to your app module `build.gradle` file.
@@ -26,7 +27,7 @@ defaultConfig {
     }
     
 dependencies {
-    implementation 'com.github.lana2882:crossclassify:0.8'
+    implementation 'com.github.crossclassify:xc-sdk-android:1.1'
 }
 ```
 Then,  press "Sync now" in the bar that appears in Android Studio:
@@ -60,7 +61,7 @@ Don't forget to add the code below to your `AndroidManifest.xml`
 
 #### 3.Set Screen Navigation Analysis
 
-For [Screen Navigation Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations) override `onResume()` method of your class (Activity,Fragment, BottomSheetDialogFragment or DialogFragment) and add the code below.
+For **Screen Navigation Tracking** override `onResume()` method of your class (Activity,Fragment, BottomSheetDialogFragment or DialogFragment) and add the code below.
 ```kotlin
 override fun onResume() {
    super.onResume()
@@ -73,7 +74,7 @@ override fun onResume() {
 For the form that you need form content and behavior analysis in it, do the following.
 ##### XML Part:
 - We have supported editText, radioGroup and checkBox for form fields.
-- Use `TrackerEditText`, `TrackerRadioGroup` and `TrackerCheckBox` for your fields in XML file and set each `field name`, `radio_field_name` and `check_box_field_name` to fieldName that allows us to provide [Form Behavioral Tracking](https://gitlab.com/abdal1/crossclassify/matomo-android-sdk/-/settings/integrations).
+- Use `TrackerEditText`, `TrackerRadioGroup` and `TrackerCheckBox` for your fields in XML file and set each `field name`, `radio_field_name` and `check_box_field_name` to fieldName that allows us to provide **Form Behavioral Tracking**.
 
 :warning: **For account opening fraud detection, you must have a field which name is "email" and contains the content of the email.**
 ```xml
@@ -391,5 +392,5 @@ Adding CrossClassify to your App Done successfuly.
 Now we are waiting for the first data.
 * * *
 #### Changelog
-##### **1.0.0**
+##### **1.1.0**
 - first stable build
