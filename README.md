@@ -12,7 +12,15 @@ To make it easy for you to get started with crossclassify SDK, here's a list of 
 [Set Form Content and Behavior Analysis](https://github.com/crossclassify/xc-sdk-android/#4set-form-content-and-behavior-analysis)
 
 #### 1.Set SDK To Gradle
-First, add this code on your `settings.gradle` and project `build.gradle` file.
+First, add this code on your project `build.gradle` file.
+```kotlin
+buildscript {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+Then, add the code below to your dependencyResolutionManagement part of `settings.gradle` file.
 ```kotlin
 repositories {
     maven { url 'https://jitpack.io' }
