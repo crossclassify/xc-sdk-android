@@ -6,8 +6,11 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
         maven { url 'https://jitpack.io' }
         maven { url 'https://maven.fpregistry.io/releases' }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
 }
 rootProject.name = "BitaTrackerApp"
 include ':exampleApp'
 include ':trackerSdk'
+include ':tracker'
+include ':Variables'

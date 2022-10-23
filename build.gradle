@@ -4,14 +4,25 @@ buildscript {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.1.2'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.5'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+allprojects{
+    ext {
+        globalMinSdkVersion = 21
+        globalTargetSdkVersion = 31
+        globalCompileSdkVersion = 31
+        timberVersion = '5.0.1'
+    }
 }
