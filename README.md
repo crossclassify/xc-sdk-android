@@ -35,7 +35,7 @@ defaultConfig {
     }
     
 dependencies {
-    implementation 'com.github.crossclassify:xc-sdk-android:1.1'
+    implementation 'com.github.crossclassify:xc-sdk-android:1.0.0'
 }
 ```
 Then,  press "Sync now" in the bar that appears in Android Studio:
@@ -48,12 +48,13 @@ android.enableJetifier=true
 
 #### 2.Set Base Class
 First, Create MyApplication class on separate file  
-Then, you need to extend **TrackerSdkApplication** and override `onCreate()` method and pass your sideId like below.
+Then, you need to extend **TrackerSdkApplication** and override `onCreate()` method and pass your sideId and apiKey like below.
 ```kotlin
 class MyApplication : TrackerSdkApplication() {
     override fun onCreate() {
         //place your siteId here
-        createDefaultConfig( <SITE-ID> )  //CHANGE BEFORE COMPILE
+        //api key is "Wz5C96h5dg37j4tlmVt3b6UD4O1GDLv34fHmfp6l"
+        createDefaultConfig( <SITE-ID> , <API-KEY> )  //CHANGE BEFORE COMPILE
         super.onCreate()
     }
 }
