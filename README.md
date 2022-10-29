@@ -1,4 +1,4 @@
-# matomo-android-sdk
+# xc-sdk-android
 
 
 
