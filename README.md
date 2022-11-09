@@ -1,5 +1,5 @@
 # xc-sdk-android
-
+For developers guide see [here](https://github.com/crossclassify/xc-sdk-android/blob/main/DEVELOPER.md).
 
 
 ## Getting started
