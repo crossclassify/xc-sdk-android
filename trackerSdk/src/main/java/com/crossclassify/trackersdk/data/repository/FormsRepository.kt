@@ -40,7 +40,7 @@ class FormsRepository(private val context: Context) {
         return try {
             if (formName !in forms) {
                 var newFormPath = UrlHandler.generateNewFormUrl(formMetaData, formName)
-                var baseUrl ="https://api.crossclassify.com/matomo/"
+                var baseUrl ="https://api.crossclassify.com/collect/"
                 newFormPath = baseUrl + newFormPath
                 val newFormCall = Api.client(context).sendData(newFormPath)
                 Timber.tag("crossClassifyGenerateNewForm: ").i(newFormPath)
@@ -66,7 +66,7 @@ class FormsRepository(private val context: Context) {
             if(formMetaData.fieldsMetaData.isNotEmpty()) {
                 /** Generate Url **/
                 var metaDataPath = UrlHandler.generateMetaDataUrl(formMetaData)
-                var baseUrl ="https://api.crossclassify.com/matomo/"
+                var baseUrl ="https://api.crossclassify.com/collect/"
                 metaDataPath = baseUrl+metaDataPath
                 Timber.tag("crossClassifySentMetaData: ").i(metaDataPath)
                 /** Send API Request **/

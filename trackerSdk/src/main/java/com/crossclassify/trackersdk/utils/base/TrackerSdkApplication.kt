@@ -146,7 +146,7 @@ abstract class TrackerSdkApplication : Application() {
     /** Initialize Matomo EndPoint **/
     fun onCreateTrackerConfig(): TrackerBuilder {
         return TrackerBuilder.createDefault(
-            "https://api.crossclassify.com/matomo/matomo.php",
+            "https://api.crossclassify.com/collect/matomo.php",
             this.mSiteId
         )
     }
