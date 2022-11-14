@@ -35,7 +35,7 @@ defaultConfig {
     }
     
 dependencies {
-    implementation 'com.github.crossclassify:xc-sdk-android:1.1.0'
+    implementation 'com.github.crossclassify:xc-sdk-android:1.0.1'
 }
 ```
 Then,  press "Sync now" in the bar that appears in Android Studio:
