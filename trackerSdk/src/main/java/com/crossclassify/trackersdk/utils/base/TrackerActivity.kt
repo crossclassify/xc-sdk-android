@@ -18,12 +18,12 @@ abstract class TrackerActivity : AppCompatActivity(),
     private val trackerTools = TrackerFunctions()
 
     // focus view for unfocused all view in activity
-    private val focusView: View by lazy {
-        View(this).apply {
-            isFocusable = true
-            isFocusableInTouchMode = true
-        }
-    }
+//    private val focusView: View by lazy {
+//        View(this).apply {
+//            isFocusable = true
+//            isFocusableInTouchMode = true
+//        }
+//    }
 
     /**
      * override setContentView for:
@@ -50,7 +50,7 @@ abstract class TrackerActivity : AppCompatActivity(),
             this,
             FormsRepository(this)
         )
-        if (view is ViewGroup) (view as ViewGroup).addView(focusView, 0)
+//        if (view is ViewGroup) (view as ViewGroup).addView(focusView, 0)
     }
 
     override fun setContentView(layoutResID: Int) {
@@ -66,7 +66,7 @@ abstract class TrackerActivity : AppCompatActivity(),
             .i("Now please override getExternalMetaData().")
 
         val mView = findViewById<ViewGroup>(android.R.id.content).rootView
-        (mView as ViewGroup).addView(focusView, 0)
+//        (mView as ViewGroup).addView(focusView, 0)
         trackerTools.initValues(
             this,
             this,
@@ -106,7 +106,8 @@ abstract class TrackerActivity : AppCompatActivity(),
     }
 
     override fun clearFocus() {
-        focusView.requestFocus()
+//        focusView.requestFocus()
+        currentFocus?.clearFocus()
     }
 
     /**

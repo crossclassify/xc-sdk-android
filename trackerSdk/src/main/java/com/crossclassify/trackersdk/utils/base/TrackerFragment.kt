@@ -20,12 +20,12 @@ abstract class TrackerFragment : Fragment(),
     TrackerActions, TrackerFun {
     private val trackerTools = TrackerFunctions()
 
-    private val focusView: View by lazy {
-        View(requireContext()).apply {
-            isFocusable = true
-            isFocusableInTouchMode = true
-        }
-    }
+//    private val focusView: View by lazy {
+//        View(requireContext()).apply {
+//            isFocusable = true
+//            isFocusableInTouchMode = true
+//        }
+//    }
 
     /**
      * override setContentView for:
@@ -52,7 +52,7 @@ abstract class TrackerFragment : Fragment(),
             this,
             FormsRepository(requireContext())
         )
-        if (view is ViewGroup) view.addView(focusView, 0)
+//        if (view is ViewGroup) view.addView(focusView, 0)
     }
 
     override fun onDestroy() {
@@ -84,7 +84,8 @@ abstract class TrackerFragment : Fragment(),
 
 
     override fun clearFocus() {
-        focusView.requestFocus()
+//        focusView.requestFocus()
+        requireActivity().currentFocus?.clearFocus()
     }
 
     /**
