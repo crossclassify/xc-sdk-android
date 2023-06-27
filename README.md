@@ -53,7 +53,6 @@ Then, you need to extend **TrackerSdkApplication** and override `onCreate()` met
 class MyApplication : TrackerSdkApplication() {
     override fun onCreate() {
         //place your siteId here
-        //api key is "Wz5C96h5dg37j4tlmVt3b6UD4O1GDLv34fHmfp6l"
         createDefaultConfig( <SITE-ID> , <API-KEY> )  //CHANGE BEFORE COMPILE
         super.onCreate()
     }
