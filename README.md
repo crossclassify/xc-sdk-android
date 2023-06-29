@@ -11,7 +11,7 @@ To make it easy for you to get started with crossclassify SDK, here's a list of 
 [Set Screen Navigation Analysis](https://github.com/crossclassify/xc-sdk-android/#3set-screen-navigation-analysis) \
 [Set Form Content and Behavior Analysis](https://github.com/crossclassify/xc-sdk-android/#4set-form-content-and-behavior-analysis)
 
-#### 1.Set SDK To Gradle
+#### Step 1: Set SDK To Gradle
 First, add this code on your project `build.gradle` file.
 ```kotlin
 buildscript {
@@ -46,7 +46,7 @@ Then,  press "Sync now" in the bar that appears in Android Studio:
 android.enableJetifier=true
 ```
 
-#### 2.Set Base Class
+#### Step 2: Set Base Class
 First, Create MyApplication class on separate file  
 Then, you need to extend **TrackerSdkApplication** and override `onCreate()` method and pass your sideId and apiKey like below.
 ```kotlin
@@ -67,7 +67,7 @@ Don't forget to add the code below to your `AndroidManifest.xml`
     android:usesCleartextTraffic="true">
 ```
 
-#### 3.Set Screen Navigation Analysis
+#### Step 3: Set Screen Navigation Analysis
 
 For **Screen Navigation Tracking** override `onResume()` method of your class (Activity,Fragment, BottomSheetDialogFragment or DialogFragment) and add the code below.
 ```kotlin
@@ -78,7 +78,7 @@ override fun onResume() {
    ScreenNavigationTracking().trackNavigation( </ACTIVITY_SAMPLE> ,<SAMPLE>) //CHANGE BEFORE COMPILE
 }
 ```
-#### 4.Set Form Content and Behavior Analysis
+#### Step 4: Set Form Content and Behavior Analysis
 For the form that you need form content and behavior analysis in it, do the following.
 ##### XML Part:
 - We have supported editText, radioGroup and checkBox for form fields.
