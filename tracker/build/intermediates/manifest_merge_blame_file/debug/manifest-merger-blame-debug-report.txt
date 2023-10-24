@@ -3,38 +3,38 @@
 3    xmlns:tools="http://schemas.android.com/tools"
 4    package="org.matomo.sdk" > <!-- added suppression for timber since 4.1.2 has minsdk 15 because google doesn't show it in the dashboard -->
 5    <uses-sdk
-5-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
+5-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
 6        android:minSdkVersion="21"
-6-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
+6-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
 7        android:targetSdkVersion="31"
-7-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
+7-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
 8        tools:overrideLibrary="timber.log" />
-8-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:15-49
+8-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:15-49
 9
 10    <uses-permission android:name="android.permission.INTERNET" />
-10-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:8:5-66
-10-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:8:22-64
+10-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:8:5-66
+10-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:8:22-64
 11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-11-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:9:5-78
-11-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:9:22-76
+11-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:9:5-78
+11-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:9:22-76
 12
 13    <application>
-13-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:11:5-21:19
+13-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:11:5-21:19
 14
 15        <!-- Suppress warning about unrestricted access to this receiver this is need to check which app store installed the app -->
 16        <receiver
-16-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:13:9-20:20
+16-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:13:9-20:20
 17            android:name="org.matomo.sdk.extra.InstallReferrerReceiver"
-17-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:14:13-72
+17-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:14:13-72
 18            android:exported="true"
-18-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:15:13-36
+18-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:15:13-36
 19            tools:ignore="ExportedReceiver" >
-19-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:16:13-44
+19-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:16:13-44
 20            <intent-filter>
-20-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:17:13-19:29
+20-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:17:13-19:29
 21                <action android:name="com.android.vending.INSTALL_REFERRER" />
-21-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:18:17-78
-21-->C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:18:25-76
+21-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:18:17-78
+21-->E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:18:25-76
 22            </intent-filter>
 23        </receiver>
 24    </application>

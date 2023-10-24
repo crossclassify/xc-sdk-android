@@ -3,7 +3,6 @@ package com.crossclassify.trackersdk.utils.base
 import android.app.Application
 import android.util.Log
 import com.crossclassify.trackersdk.utils.objects.Values
-import com.fingerprintjs.android.fingerprint.Configuration
 import com.fingerprintjs.android.fingerprint.Fingerprinter
 import com.fingerprintjs.android.fingerprint.FingerprinterFactory
 import com.fingerprintjs.android.fpjs_pro.FingerprintJSFactory
@@ -18,7 +17,7 @@ import org.matomo.sdk.extra.TrackHelper
 import org.matomo.sdk.tools.BuildInfo
 import org.matomo.sdk.tools.PropertySource
 import timber.log.Timber
-import java.util.*
+import java.util.Locale
 
 abstract class TrackerSdkApplication : Application() {
     companion object {
@@ -72,39 +71,46 @@ abstract class TrackerSdkApplication : Application() {
 
 
                 //TODO: PAID FINGERPRINT
-                val factory = FingerprintJSFactory(applicationContext)
-                val configuration = com.fingerprintjs.android.fpjs_pro.Configuration(
-                    "nLvTePYiYEFERqTHoSZ7"
-                )
+//                val factory = FingerprintJSFactory(applicationContext)
+//                val configuration = com.fingerprintjs.android.fpjs_pro.Configuration(
+//                    "5YfVe5tzmaQs7vK1vBzY"
+//                )
 
-                val fpjsClient = factory.createInstance(
-                    configuration
-                )
+//                val fpjsClient = factory.createInstance(
+//                    configuration
+//                )
+
                 val sharedPreferences = getSharedPreferences(
                     "org.matomo.sdk_FE8DB41078DFFC3D9751687595C3B837",
                     MODE_PRIVATE
                 )
                 val fingerprint: Fingerprinter = FingerprinterFactory
-                    .getInstance(applicationContext, Configuration(version = 3))
+                    .create(applicationContext)
 
-                if(userId==null){
-                    try{
-                        fpjsClient.getVisitorId {
-                            userId = it.visitorId
-                        }
-                    }catch (e:Exception){
-                        fingerprint.getFingerprint {
-                            userId = it.fingerprint
-                        }
+                if (userId == null) {
+                    fingerprint.getFingerprint(Fingerprinter.Version.V_5) {
+                        userId = it
                     }
                 }
-                while(userId==null)
-                {
+
+
+//                if(userId==null){
+//                    try{
+//                        fpjsClient.getVisitorId {
+//                            userId = it.visitorId
+//                        }
+//                    }catch (e:Exception){
+//                        fingerprint.getFingerprint(Fingerprinter.Version.V_5) {
+//                            userId = it
+//                        }
+//                    }
+//                }
+                while (userId == null) {
                     Thread.sleep(1000)
                 }
-                Log.e("userId",userId)
+                Log.e("userId", userId)
                 sharedPreferences.edit().putString("tracker.fingerprint", userId).apply()
-                fingerprint.getDeviceId { result ->
+                fingerprint.getDeviceId(Fingerprinter.Version.V_5) { result ->
                     visitorId = result.deviceId
                     sharedPreferences.edit().putString("tracker.visitorid", visitorId).apply()
                 }

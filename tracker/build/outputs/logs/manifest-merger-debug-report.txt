@@ -1,53 +1,53 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:2:1-22:12
-INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:2:1-22:12
+ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:2:1-22:12
 	package
-		INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:2:1-22:12
-		INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml
+		INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:2:1-22:12
+		INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:3:11-57
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:3:11-57
 	xmlns:android
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:2:11-69
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:2:11-69
 uses-sdk
-ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
-INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
-INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
-INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
-INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
+ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
+INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
+INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
+INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
+INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
 	tools:overrideLibrary
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:15-49
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:15-49
 	android:targetSdkVersion
-		INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
-		INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml
+		INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
+		INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:6:5-51
-		INJECTED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml
+		INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:6:5-51
+		INJECTED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:8:5-66
+ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:8:5-66
 	android:name
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:8:22-64
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:8:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:9:5-78
+ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:9:5-78
 	android:name
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:9:22-76
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:9:22-76
 application
-ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:11:5-21:19
+ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:11:5-21:19
 receiver#org.matomo.sdk.extra.InstallReferrerReceiver
-ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:13:9-20:20
+ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:13:9-20:20
 	android:exported
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:15:13-36
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:15:13-36
 	tools:ignore
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:16:13-44
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:16:13-44
 	android:name
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:14:13-72
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:14:13-72
 intent-filter#action:name:com.android.vending.INSTALL_REFERRER
-ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:17:13-19:29
+ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:17:13-19:29
 action#com.android.vending.INSTALL_REFERRER
-ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:18:17-78
+ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:18:17-78
 	android:name
-		ADDED from C:\Users\top\Desktop\IUST\android\sdk\TrackerSdkWithMatomo\tracker\src\main\AndroidManifest.xml:18:25-76
+		ADDED from E:\Android project\xc-sdk-android\tracker\src\main\AndroidManifest.xml:18:25-76
