@@ -2,13 +2,11 @@ package com.crossclassify.examlpeapp.ui.defaultEpoxyWithControllerExample
 
 
 import android.os.Bundle
-import android.widget.Button
-import com.airbnb.epoxy.EpoxyRecyclerView
 import com.crossclassify.examlpeapp.R
 import com.crossclassify.trackersdk.data.model.FieldMetaData
 import com.crossclassify.trackersdk.utils.ScreenNavigationTracking
 import com.crossclassify.trackersdk.utils.base.TrackerActivity
-//import kotlinx.android.synthetic.main.activity_epoxy.*
+import kotlinx.android.synthetic.main.activity_epoxy.*
 
 
 class EpoxyActivity : TrackerActivity() {
@@ -24,17 +22,15 @@ class EpoxyActivity : TrackerActivity() {
             list.add(i.toString())
         }
 
-        findViewById<EpoxyRecyclerView>(R.id.epoxy_rv).apply{
-            adapter = controller.adapter
-        }
+        epoxy_rv.adapter = controller.adapter
         controller.requestModelBuild()
         controller.submit(list)
 
-        findViewById<Button>(R.id.btn).setOnClickListener {
+        btn.setOnClickListener {
             trackerClickSubmitButton()
             clearData(editTexts=true, radioButtons = true, checkBox = true)
             controller= EpoxyController(this)
-            findViewById<EpoxyRecyclerView>(R.id.epoxy_rv).adapter = controller.adapter
+            epoxy_rv.adapter = controller.adapter
             controller.submit(list)
 
         }

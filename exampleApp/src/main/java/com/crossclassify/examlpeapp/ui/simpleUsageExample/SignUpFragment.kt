@@ -5,15 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import com.crossclassify.examlpeapp.R
 import com.crossclassify.trackersdk.data.model.FieldMetaData
 import com.crossclassify.trackersdk.utils.ScreenNavigationTracking
 import com.crossclassify.trackersdk.utils.base.TrackerFragment
-
-//import kotlinx.android.synthetic.main.fragment_signup.*
+import kotlinx.android.synthetic.main.fragment_signup.*
 
 //extend from TrackerFragment if you have form and need form content and behavior analysis in fragment
 //override setFormName and define a name for your form
@@ -32,7 +29,7 @@ class SignUpFragment : TrackerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //set onClickListener for your submit button and call trackerClickSubmitButton()
-        view.findViewById<Button>(R.id.btnSubmitFragment).setOnClickListener {
+        btnSubmitFragment.setOnClickListener {
             Toast.makeText(
                 activity,
                 "Thanks for signing up. Welcome to our community.",
@@ -43,7 +40,7 @@ class SignUpFragment : TrackerFragment() {
 
         }
 
-        view.findViewById<TextView>(R.id.goToLogin).setOnClickListener {
+        goToLogin.setOnClickListener {
             val intent = Intent(requireContext(), LoginActivity::class.java)
             startActivity(intent)
 
