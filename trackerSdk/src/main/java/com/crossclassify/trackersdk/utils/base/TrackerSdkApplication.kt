@@ -85,26 +85,32 @@ abstract class TrackerSdkApplication : Application() {
                     MODE_PRIVATE
                 )
                 val fingerprint: Fingerprinter = FingerprinterFactory
-                    .getInstance(applicationContext, Configuration(version = 3))
+                    .create(applicationContext)
 
-                if(userId==null){
-                    try{
-                        fpjsClient.getVisitorId {
-                            userId = it.visitorId
-                        }
-                    }catch (e:Exception){
-                        fingerprint.getFingerprint {
-                            userId = it.fingerprint
-                        }
+                if(userId==null) {
+                    fingerprint.getFingerprint(Fingerprinter.Version.V_5) {
+                        userId = it
                     }
                 }
+
+//                if(userId==null){
+//                    try{
+//                        fpjsClient.getVisitorId {
+//                            userId = it.visitorId
+//                        }
+//                    }catch (e:Exception){
+//                        fingerprint.getFingerprint {
+//                            userId = it.fingerprint
+//                        }
+//                    }
+//                }
                 while(userId==null)
                 {
                     Thread.sleep(1000)
                 }
                 Log.e("userId",userId)
                 sharedPreferences.edit().putString("tracker.fingerprint", userId).apply()
-                fingerprint.getDeviceId { result ->
+                fingerprint.getDeviceId (Fingerprinter.Version.V_5){ result ->
                     visitorId = result.deviceId
                     sharedPreferences.edit().putString("tracker.visitorid", visitorId).apply()
                 }

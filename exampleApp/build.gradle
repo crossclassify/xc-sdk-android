@@ -1,14 +1,14 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+
     id 'kotlin-kapt'
 //    id 'com.google.gms.google-services'
 
 }
 
 android {
-    compileSdk 31
+    compileSdk 34
     dataBinding{
         enabled = true
     }
@@ -20,7 +20,7 @@ android {
     defaultConfig {
         applicationId "com.bita.bitatrackerapp"
         minSdk 21
-        targetSdk 31
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 

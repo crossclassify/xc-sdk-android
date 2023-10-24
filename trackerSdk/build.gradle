@@ -67,10 +67,10 @@ dependencies {
     implementation 'com.readystatesoftware.chuck:library:1.1.0'
 
     // device id
-    implementation "com.github.fingerprintjs:fingerprint-android:1.2"
+    implementation "com.github.fingerprintjs:fingerprint-android:2.1.0"
 
     // fingerprint
-    implementation "com.fingerprint.android:pro:2.1.1"
+    implementation "com.fingerprint.android:pro:2.3.3"
     implementation  "androidx.datastore:datastore-core:1.0.0"
     implementation  "com.google.protobuf:protobuf-javalite:3.18.0"
     implementation "androidx.datastore:datastore:1.0.0"
